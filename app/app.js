@@ -1,14 +1,19 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('app', [
-  'ngRoute',
-  'firebase',
-  'app.view1',
-  'app.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+angular
+  .module('app', [
+    'ngRoute',
+    'firebase',
+    'app.game'
+  ])
+ .config(ApplicationConfig);
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+function ApplicationConfig($locationProvider, $routeProvider) {
+  $locationProvider.hashPrefix('!');
+  $routeProvider.when('/game', {
+    templateUrl: 'game/game.html',
+    controller: 'GameCtrl as ctrl'
+  });
+  $routeProvider.otherwise({redirectTo: '/game'});
+}
