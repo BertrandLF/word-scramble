@@ -1,13 +1,17 @@
 'use strict';
 
 angular
-  .module('myApp.view1', ['ngRoute', 'firebase'])
-  .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
-  });
-}])
-  .controller('View1Ctrl', [function() {
+  .module('app.view1', ['ngRoute', 'firebase'])
+  .config(ApplicationConfig)
+  .controller('ScrambleCtrl', ScrambleCtrl);
 
-}]);
+  function ApplicationConfig($routeProvider) {
+    $routeProvider.when('/view1', {
+      templateUrl: 'view1/view1.html',
+      controller: 'ScrambleCtrl'
+    });
+  }
+  
+  function ScrambleCtrl($firebaseObject) {
+
+  }

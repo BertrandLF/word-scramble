@@ -1,0 +1,43 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'test' ]
+2 info using npm@3.10.9
+3 info using node@v7.2.0
+4 verbose run-script [ 'pretest', 'test', 'posttest' ]
+5 info lifecycle word-scramble@0.0.0~pretest: word-scramble@0.0.0
+6 verbose lifecycle word-scramble@0.0.0~pretest: unsafe-perm in lifecycle true
+7 verbose lifecycle word-scramble@0.0.0~pretest: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\Bertrand\Documents\projects\ui-code-reviews\word-scramble\node_modules\.bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Dell\DW WLAN Card;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;c:\Program Files\WIDCOMM\Bluetooth Software\;c:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files (x86)\sbt\\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_101;C:\Program Files\apache-maven-3.3.9\bin;C:\Users\Bertrand\Downloads\gradle-3.1-all\gradle-3.1\bin;C:\Program Files\nodejs\;C:\Users\Bertrand\AppData\Local\Microsoft\WindowsApps;;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Bertrand\AppData\Roaming\npm
+8 verbose lifecycle word-scramble@0.0.0~pretest: CWD: C:\Users\Bertrand\Documents\projects\ui-code-reviews\word-scramble
+9 silly lifecycle word-scramble@0.0.0~pretest: Args: [ '/d /s /c', 'npm install' ]
+10 silly lifecycle word-scramble@0.0.0~pretest: Returned: code: 0  signal: null
+11 info lifecycle word-scramble@0.0.0~test: word-scramble@0.0.0
+12 verbose lifecycle word-scramble@0.0.0~test: unsafe-perm in lifecycle true
+13 verbose lifecycle word-scramble@0.0.0~test: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\Bertrand\Documents\projects\ui-code-reviews\word-scramble\node_modules\.bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Dell\DW WLAN Card;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;c:\Program Files\WIDCOMM\Bluetooth Software\;c:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files (x86)\sbt\\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_101;C:\Program Files\apache-maven-3.3.9\bin;C:\Users\Bertrand\Downloads\gradle-3.1-all\gradle-3.1\bin;C:\Program Files\nodejs\;C:\Users\Bertrand\AppData\Local\Microsoft\WindowsApps;;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Bertrand\AppData\Roaming\npm
+14 verbose lifecycle word-scramble@0.0.0~test: CWD: C:\Users\Bertrand\Documents\projects\ui-code-reviews\word-scramble
+15 silly lifecycle word-scramble@0.0.0~test: Args: [ '/d /s /c', 'karma start karma.conf.js' ]
+16 silly lifecycle word-scramble@0.0.0~test: Returned: code: 3221225786  signal: null
+17 info lifecycle word-scramble@0.0.0~test: Failed to exec test script
+18 error Test failed.  See above for more details.
+19 verbose exit [ 1, true ]
+20 verbose stack Error: kill ENOSYS
+20 verbose stack     at exports._errnoException (util.js:1022:11)
+20 verbose stack     at process.kill (internal/process.js:173:13)
+20 verbose stack     at process.listener (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:86:15)
+20 verbose stack     at emitNone (events.js:91:20)
+20 verbose stack     at process.emit (events.js:185:7)
+20 verbose stack     at processEmit (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+20 verbose stack     at processEmit (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+20 verbose stack     at Signal.wrap.onsignal (internal/process.js:200:44)
+21 verbose cwd C:\Users\Bertrand\Documents\projects\ui-code-reviews\word-scramble
+22 error Windows_NT 10.0.14393
+23 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "test"
+24 error node v7.2.0
+25 error npm  v3.10.9
+26 error code ENOSYS
+27 error errno ENOSYS
+28 error syscall kill
+29 error kill ENOSYS
+30 error If you need help, you may report this error at:
+30 error     <https://github.com/npm/npm/issues>
+31 verbose exit [ 1, true ]
