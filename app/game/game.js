@@ -13,6 +13,5 @@ function Words($firebaseArray) {
 }
 
 function GameCtrl($scope, words) {
-  var wordsList = words.all()
-  this.list = wordsList
+  this.list = words.all()
 }

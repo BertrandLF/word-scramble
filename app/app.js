@@ -5,8 +5,9 @@ angular
   .module('app', [
     'ngRoute',
     'firebase',
-    'app.game'
-  ])
+    'app.game',
+    'angular.less']
+  )
  .config(ApplicationConfig);
 
 function ApplicationConfig($locationProvider, $routeProvider) {
