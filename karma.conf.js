@@ -1,34 +1,35 @@
-//jshint strict: false
-module.exports = function(config) {
-  config.set({
+'use strict';
 
-    basePath: './app',
+module.exports = function (karma) {
+  karma.set({
+
+    frameworks: ['jasmine', 'browserify'],
 
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'bower_components/angularfire/dist/angularfire.js',
-      'components/**/*.js',
-      'view*/**/*.js'
+      'app/bower_components/angular/angular.js',
+      'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/firebase/firebase.js',
+      'app/bower_components/angularfire/dist/angularfire.js',
+      'app/app.js',
+      'app/game/game.js',
+      'app/**/*_test.js'
     ],
 
+    preprocessors: {
+      'app/**/*.js': ['browserify']
+    },
+
+    browsers: ['PhantomJS'],
+
+    logLevel: 'LOG_DEBUG',
+
+    singleRun: false,
     autoWatch: true,
+    reporters: ['progress'],
 
-    frameworks: ['jasmine'],
-
-    browsers: ['Chrome'],
-
-    plugins: [
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-jasmine',
-      'karma-junit-reporter'
-    ],
-
-    junitReporter: {
-      outputFile: 'test_out/unit.xml',
-      suite: 'unit'
+    browserify: {
+      debug: true
     }
 
   });
