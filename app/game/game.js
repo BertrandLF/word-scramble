@@ -13,6 +13,8 @@ function Words($firebaseArray) {
 }
 
 function GameCtrl($scope, words) {
+  $scope.penalty = 0
+  $scope.score = 0
   var storedWords = words.all()
   var remainingWords = []
 
@@ -20,20 +22,42 @@ function GameCtrl($scope, words) {
     angular.forEach(storedWords, function (value, key) {
       remainingWords.push(value)
     })
-    var currentWord = remainingWords[0]
-    $scope.guess = currentWord.$value
-    $scope.solution = currentWord.$id
+    $scope.remainingWords = remainingWords
+    pickAWord($scope)
   })
 
   this.list = remainingWords
   $scope.evaluateGuess = function (keyEvent) {
     if (stringsMatch($scope.guessValue, $scope.solution)) {
-      $scope.message = "You win!"
-    } else {
-      $scope.message = ""
+      wordFound($scope, $scope.solution)
+    } else if (keyEvent.code.match("Delete|Backspace")) {
+      $scope.penalty += 1
+      console.log("Penalty!", keyEvent, $scope.penalty)
     }
   }
 }
+
+function wordFound($scope, word) {
+  $scope.message = "Correct!"
+  $scope.guessValue = ""
+  $scope.score += wordScore(word, $scope.penalty)
+  pickAWord($scope)
+}
+
+function pickAWord($scope) {
+  if ($scope.remainingWords.length > 0) {
+    var currentWord = $scope.remainingWords.shift()
+    $scope.guess = currentWord.$value
+    $scope.solution = currentWord.$id
+  } else {
+    $scope.message = "No more words!"
+  }
+}
+
+function wordScore(word, penalty) {
+  return Math.max(0, Math.floor(Math.pow(1.95, (word.length / 3))) - penalty)
+}
+
 function stringsMatch(guess, solution) {
   return guess.toUpperCase() === solution.toUpperCase()
 }
