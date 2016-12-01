@@ -13,6 +13,7 @@ module.exports = function (karma) {
       'app/bower_components/angularfire/dist/angularfire.js',
       'app/app.js',
       'app/game/game.js',
+      'app/components/**/*.js',
       'app/**/*_test.js'
     ],
 
@@ -20,7 +21,7 @@ module.exports = function (karma) {
       'app/**/*.js': ['browserify']
     },
 
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     logLevel: 'LOG_DEBUG',
 

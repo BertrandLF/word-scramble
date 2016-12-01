@@ -1,9 +1,8 @@
 'use strict';
 
 angular
-  .module('app.game', ['ngRoute', 'firebase'])
+  .module('app.game', ['ngRoute', 'app.words'])
   .controller('GameCtrl', GameCtrl)
-  .service('words', Words)
 
 function GameCtrl($scope, words) {
   var ctrl = this
@@ -34,10 +33,13 @@ function initGame(ctrl, words) {
   })
 }
 
-function Words($firebaseArray) {
-  var wordsRef = firebase.database().ref().child('words')
-  this.all = function all() {
-    return $firebaseArray(wordsRef)
+function pickAWord(ctrl) {
+  if (ctrl.remainingWords.length > 0) {
+    var currentWord = ctrl.remainingWords.shift()
+    ctrl.guess = currentWord.$value
+    ctrl.solution = currentWord.$id
+  } else {
+    ctrl.message = "No more words!"
   }
 }
 
@@ -47,16 +49,6 @@ function wordFound(ctrl, word) {
   ctrl.guessValue = ""
   ctrl.penalty = 0
   pickAWord(ctrl)
-}
-
-function pickAWord(ctrl) {
-  if (ctrl.remainingWords.length > 0) {
-    var currentWord = ctrl.remainingWords.shift()
-    ctrl.guess = currentWord.$value
-    ctrl.solution = currentWord.$id
-  } else {
-    ctrl.message = "No more words!"
-  }
 }
 
 function wordScore(word, penalty) {

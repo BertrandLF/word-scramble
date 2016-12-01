@@ -6,6 +6,7 @@ angular
     'ngRoute',
     'firebase',
     'app.game',
+    'app.words',
     'angular.less']
   )
  .config(ApplicationConfig);
