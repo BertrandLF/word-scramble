@@ -5,16 +5,23 @@ angular
   .controller('GameCtrl', GameCtrl)
   .service('words', Words)
 
-function Words($firebaseArray) {
-  var wordsRef = firebase.database().ref().child('words')
-  this.all = function all() {
-    return $firebaseArray(wordsRef)
+function GameCtrl($scope, words) {
+  var ctrl = this
+
+  initGame(ctrl, words)
+
+  ctrl.evaluateGuess = function (keyEvent) {
+    if (stringsMatch(ctrl.guessValue, ctrl.solution)) {
+      wordFound(ctrl, ctrl.solution)
+    } else if (keyEvent.code.match("Delete|Backspace")) {
+      ctrl.penalty += 1
+    }
   }
 }
 
-function GameCtrl($scope, words) {
-  $scope.penalty = 0
-  $scope.score = 0
+function initGame(ctrl, words) {
+  ctrl.penalty = 0
+  ctrl.score = 0
   var storedWords = words.all()
   var remainingWords = []
 
@@ -22,35 +29,33 @@ function GameCtrl($scope, words) {
     angular.forEach(storedWords, function (value, key) {
       remainingWords.push(value)
     })
-    $scope.remainingWords = remainingWords
-    pickAWord($scope)
+    ctrl.remainingWords = remainingWords
+    pickAWord(ctrl)
   })
+}
 
-  this.list = remainingWords
-  $scope.evaluateGuess = function (keyEvent) {
-    if (stringsMatch($scope.guessValue, $scope.solution)) {
-      wordFound($scope, $scope.solution)
-    } else if (keyEvent.code.match("Delete|Backspace")) {
-      $scope.penalty += 1
-      console.log("Penalty!", keyEvent, $scope.penalty)
-    }
+function Words($firebaseArray) {
+  var wordsRef = firebase.database().ref().child('words')
+  this.all = function all() {
+    return $firebaseArray(wordsRef)
   }
 }
 
-function wordFound($scope, word) {
-  $scope.message = "Correct!"
-  $scope.guessValue = ""
-  $scope.score += wordScore(word, $scope.penalty)
-  pickAWord($scope)
+function wordFound(ctrl, word) {
+  ctrl.score += wordScore(word, ctrl.penalty)
+  ctrl.message = "Correct!"
+  ctrl.guessValue = ""
+  ctrl.penalty = 0
+  pickAWord(ctrl)
 }
 
-function pickAWord($scope) {
-  if ($scope.remainingWords.length > 0) {
-    var currentWord = $scope.remainingWords.shift()
-    $scope.guess = currentWord.$value
-    $scope.solution = currentWord.$id
+function pickAWord(ctrl) {
+  if (ctrl.remainingWords.length > 0) {
+    var currentWord = ctrl.remainingWords.shift()
+    ctrl.guess = currentWord.$value
+    ctrl.solution = currentWord.$id
   } else {
-    $scope.message = "No more words!"
+    ctrl.message = "No more words!"
   }
 }
 
