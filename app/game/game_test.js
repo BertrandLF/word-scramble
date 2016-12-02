@@ -1,7 +1,6 @@
 'use strict';
 
 describe('app.game module', function () {
-
   var $controller;
   var GameCtrl;
   var words;
@@ -9,23 +8,27 @@ describe('app.game module', function () {
   beforeEach(angular.mock.module('app.game'));
 
   beforeEach(function () {
-    var words = ['word1', 'word2']
+    words = {
+      $keyAt: function (index) { return ['word1', 'word2'][index] },
+      length: 2
+    }
   })
 
-  beforeEach(inject(function (_$controller_) {
-    // The injector unwraps the underscores (_) from around the parameter names when matching
-    $controller = _$controller_;
+  beforeEach(inject(function ($controller) {
+    var $scope = {};
+    GameCtrl = $controller('GameCtrl', {
+      $scope: $scope,
+      words: words
+    });
   }));
 
   describe('game controller', function () {
 
     it('should initialise the game', function () {
-      var $scope = {};
-      var controller = $controller('GameCtrl', {
-        $scope: $scope,
-        words: words
-      });
-      expect($scope.score).toEqual(0)
+      expect(GameCtrl.score).toEqual(0)
+      expect(GameCtrl.penalty).toEqual(0)
+      expect(GameCtrl.word.guess).toMatch(/[A-Z]+/)
+      expect(GameCtrl.word.solution).toMatch(/[word1|word2]/)
     });
 
   });

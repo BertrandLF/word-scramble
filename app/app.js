@@ -8,7 +8,6 @@ angular
     'app.game',
     'angular.less']
   )
-  .constant('wordsRef', firebase.database().ref().child('words'))
   .config(ApplicationConfig);
 
 function ApplicationConfig($locationProvider, $routeProvider) {
@@ -17,7 +16,8 @@ function ApplicationConfig($locationProvider, $routeProvider) {
     templateUrl: 'game/game.html',
     controller: 'GameCtrl as ctrl',
     resolve: {
-      words: function ($firebaseArray, wordsRef) {
+      words: function ($firebaseArray) {
+        var wordsRef = firebase.database().ref().child('words')
         return $firebaseArray(wordsRef).$loaded();
       }
     }

@@ -6,9 +6,8 @@ angular
 
 function GameCtrl($scope, words) {
   var ctrl = this
-
   initGame(ctrl, words)
-
+  debugger
   ctrl.evaluateGuess = function (keyEvent) {
     if (stringsMatch(ctrl.guessValue, ctrl.word.solution)) {
       wordFound(ctrl, ctrl.word.solution)

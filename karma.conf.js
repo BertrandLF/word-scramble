@@ -21,7 +21,7 @@ module.exports = function (karma) {
       'app/**/*.js': ['browserify']
     },
 
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
     logLevel: 'LOG_DEBUG',
 
