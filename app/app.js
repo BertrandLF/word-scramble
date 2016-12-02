@@ -6,16 +6,21 @@ angular
     'ngRoute',
     'firebase',
     'app.game',
-    'app.words',
     'angular.less']
   )
- .config(ApplicationConfig);
+  .constant('wordsRef', firebase.database().ref().child('words'))
+  .config(ApplicationConfig);
 
 function ApplicationConfig($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
   $routeProvider.when('/game', {
     templateUrl: 'game/game.html',
-    controller: 'GameCtrl as ctrl'
+    controller: 'GameCtrl as ctrl',
+    resolve: {
+      words: function ($firebaseArray, wordsRef) {
+        return $firebaseArray(wordsRef).$loaded();
+      }
+    }
   });
-  $routeProvider.otherwise({redirectTo: '/game'});
+  $routeProvider.otherwise({ redirectTo: '/game' });
 }
