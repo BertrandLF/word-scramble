@@ -9,7 +9,12 @@ describe('app.game module', function () {
 
   beforeEach(function () {
     words = {
-      $keyAt: function (index) { return ['word1', 'word2'][index] },
+      $getRecord: function (index) {
+        return [
+          { $value: 'word1' },
+          { $value: 'word2' }
+        ][index]
+      },
       length: 2
     }
   })
