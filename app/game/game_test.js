@@ -2,7 +2,7 @@
 
 describe('app.game module', function () {
   var $controller;
-  var GameCtrl;
+  var gameCtrl;
   var words;
 
   beforeEach(angular.mock.module('app.game'));
@@ -21,7 +21,7 @@ describe('app.game module', function () {
 
   beforeEach(inject(function ($controller) {
     var $scope = {};
-    GameCtrl = $controller('GameCtrl', {
+    gameCtrl = $controller('GameCtrl', {
       $scope: $scope,
       words: words
     });
@@ -30,10 +30,10 @@ describe('app.game module', function () {
   describe('game controller', function () {
 
     it('should initialise the game', function () {
-      expect(GameCtrl.score).toEqual(0)
-      expect(GameCtrl.penalty).toEqual(0)
-      expect(GameCtrl.word.guess).toMatch(/[A-Z]+/)
-      expect(GameCtrl.word.solution).toMatch(/[word1|word2]/)
+      expect(gameCtrl.score).toEqual(0)
+      expect(gameCtrl.penalty).toEqual(0)
+      expect(gameCtrl.word.guess).toMatch(/[A-Z]+/)
+      expect(gameCtrl.word.solution).toMatch(/[word1|word2]/)
     });
 
   });
