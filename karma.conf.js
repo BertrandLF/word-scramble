@@ -13,6 +13,7 @@ module.exports = function (karma) {
       'app/bower_components/angularfire/dist/angularfire.js',
       'app/app.js',
       'app/game/game.js',
+      'app/timer/timer.js',
       'app/components/**/*.js',
       'app/**/*_test.js'
     ],

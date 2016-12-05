@@ -7,6 +7,7 @@ angular
     'firebase',
     'app.game',
     'app.word',
+    'app.timer',
     'angular.less']
   )
   .config(ApplicationConfig);
