@@ -12,7 +12,6 @@ describe('word service', function() {
     }
 
     it('should pickAWord', function() {
-        debugger
         var picked = service.pickAWord(wordList)
         expect(picked.solution).toMatch(/[pour|habit]/)
         expect(picked.guess).toMatch(/[P,O,U,R]|[H,A,B,I,T]/)
