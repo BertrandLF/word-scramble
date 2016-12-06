@@ -7,7 +7,8 @@ angular
 function Words() {
 
   this.pickAWord = function (wordList) {
-    var index = Math.floor(wordList.length * Math.random())
+    //firebaseArray starts at 1, so use ceil
+    var index = Math.ceil(wordList.length * Math.random())
     var currentWord = wordList.$getRecord(index).$value
     return {
       guess: this.scramble(currentWord),

@@ -13,7 +13,7 @@ describe('app.game module', function () {
         return [
           { $value: 'word1' },
           { $value: 'word2' }
-        ][index]
+        ][index - 1] //firebaseArray starts at 1
       },
       length: 2
     }
