@@ -9,5 +9,11 @@ function TimeCtrl($scope, $interval) {
   var tick = function () {
     ctrl.timer -= 1;
   }
-  $interval(tick, 1000, time);
+  var timerInterval = $interval(tick, 1000, time);
+
+  ctrl.cancelTimer = function() {
+    $interval.cancel(timerInterval)
+  }
+
+  $scope.$on('$destroy', ctrl.cancelTimer)
 }
