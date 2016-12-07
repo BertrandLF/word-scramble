@@ -5,9 +5,13 @@ angular
 function TimeCtrl($scope, $interval) {
   var ctrl = this
   var time = 40
+
   ctrl.timer = time
   var tick = function () {
     ctrl.timer -= 1;
+    if (ctrl.timer == 0) {
+      $scope.$emit('timesUp');
+    }
   }
   var timerInterval = $interval(tick, 1000, time);
 

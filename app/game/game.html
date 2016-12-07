@@ -3,5 +3,4 @@
     <div ng-controller='TimeCtrl as timeCtrl' class="col-xs-6 col-md-6 time">Time: {{ timeCtrl.timer }}</div>
 </div>
 <div class="row guess">{{ ctrl.word.guess }}</div>
-<div class="row solution"><input type="text" ng-keyup="ctrl.evaluateGuess($event)" ng-model="ctrl.guessValue" autofocus/></div>
-<div class="message">{{ ctrl.message }}</div>
+<div class="row solution"><input type="text" ng-disabled="ctrl.finished" ng-keyup="ctrl.evaluateGuess($event)" ng-model="ctrl.guessValue" autofocus/></div>

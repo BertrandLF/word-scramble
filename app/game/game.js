@@ -1,10 +1,10 @@
 'use strict';
 
 angular
-  .module('app.game', ['ngRoute', 'app.word'])
+  .module('app.game', ['ngRoute', 'app.word', 'app.score'])
   .controller('GameCtrl', GameCtrl)
 
-function GameCtrl($scope, words, WordService) {
+function GameCtrl($scope, words, WordService, ScoreService) {
   var ctrl = this
   var s = WordService
 
@@ -18,7 +18,13 @@ function GameCtrl($scope, words, WordService) {
     }
   }
 
+  $scope.$on('timesUp', function (event, data) {
+    ScoreService.endGame()
+    ctrl.finished = true
+  })
+
   function initGame(ctrl, words) {
+    ctrl.finished = false
     ctrl.penalty = 0
     ctrl.score = 0
     ctrl.storedWords = words
@@ -27,7 +33,6 @@ function GameCtrl($scope, words, WordService) {
 
   function wordFound(ctrl, word) {
     ctrl.score += s.wordScore(word, ctrl.penalty)
-    ctrl.message = "Correct!"
     ctrl.guessValue = ""
     ctrl.penalty = 0
     ctrl.word = s.pickAWord(ctrl.storedWords)

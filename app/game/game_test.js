@@ -1,10 +1,17 @@
 'use strict';
 
 describe('app.game module', function () {
-  var $controller;
-  var gameCtrl;
-  var words;
-
+  var $controller
+  var gameCtrl
+  var words
+  var timeUpListener = false
+  var $scope = {
+    $on: function (on, fn) {
+      if (on == 'timesUp') {
+        timeUpListener = true
+      }
+    }
+  }
   beforeEach(angular.mock.module('app.game'));
 
   beforeEach(function () {
@@ -20,7 +27,6 @@ describe('app.game module', function () {
   })
 
   beforeEach(inject(function ($controller) {
-    var $scope = {};
     gameCtrl = $controller('GameCtrl', {
       $scope: $scope,
       words: words
@@ -36,5 +42,8 @@ describe('app.game module', function () {
       expect(gameCtrl.word.solution).toMatch(/[word1|word2]/)
     });
 
+    it('should listen to timesUp', function() {
+      expect(timeUpListener).toBeTruthy()
+    });
   });
 });

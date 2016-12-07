@@ -8,6 +8,7 @@ angular
     'app.game',
     'app.word',
     'app.timer',
+    'app.score',
     'angular.less']
   )
   .config(ApplicationConfig);
