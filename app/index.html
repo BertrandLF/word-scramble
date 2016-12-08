@@ -12,8 +12,9 @@
   <title>Word Scramble Game</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link href="assets/styles/app.less" rel="stylesheet/less">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet/less" type="text/css" href="assets/styles/app.less"/>
+  <link rel="stylesheet/less" type="text/css" href="assets/styles/menu.less"/>
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   <script src="bower_components/firebase/firebase.js"></script>
   <script type="text/javascript" src="bower_components/prefixfree/prefixfree.min.js"></script>
@@ -35,37 +36,26 @@
 </head>
 
 <body>
-
-  <nav class="navbar navbar-inverse">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-          aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand" href="#">Word Scramble Game</a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Play</a></li>
-          <li><a href="#about">Highscores</a></li>
+<div class="game">
+  <div class="header">
+    <div class="game-title col-xs-3 col-sm-5 col-md-5 col-lg-5">Word Scramble</div>
+    <div class="col-xs-9 col-sm-7 col-md-7 col-lg-7">
+      <nav>
+        <ul class="top-menu">
+          <li><a href=#>Play</a><div class="menu-item" id="play"></div></li>
+          <li><a href=#>Highscores</a><div class="menu-item" id="highscores"></div></li>
         </ul>
-      </div>
-      <!--/.nav-collapse -->
+      </nav>
     </div>
-  </nav>
-
+  </div>
   <div class="container">
-
     <div class="row">
       <div class="col-md-12">
         <div ng-view></div>
       </div>
-
     </div>
+  </div>
+</div>
     <!-- /.container -->
 
     <script src="bower_components/jquery/dist/jquery.js"></script>

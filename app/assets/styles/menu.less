@@ -1,0 +1,78 @@
+@import "/assets/styles/constants";
+
+.header {
+  border-radius: 8px 8px 0px 0px;
+	text-align: left;
+  background-color: black;
+	height: 160px;
+}
+.game-title {
+    font-size: @space;
+    color: white;
+    padding: 2*@space 0px 0px 2*@space;
+}
+
+.top-menu li {
+	display: inline-block;
+	text-align: center;
+	margin: @space 5px;
+	position: relative;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+}
+.top-menu li:hover {
+	margin: @space 20px;
+}
+.top-menu li:active {
+	margin: @space 33px;
+}
+.top-menu li a  {
+	width: 100px;
+	height: 85px;
+	z-index: 9999;
+	position: absolute;
+	top: 35px;
+	font-weight: bold;
+	display: block;
+	text-decoration: none;
+	font-size: 20px;
+	color: #fff;
+	text-shadow: 0px 1px 1px rgba(0,0,0,0.4), 0px 4px 6px rgba(0,0,0,0.1), 0px 9px 11px rgba(0,0,0,0.1);
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	-o-transition: all 0.1s linear;
+}
+.top-menu li:active a {
+	font-size: 26px;
+	top: @space;
+	text-shadow: none;
+}
+.top-menu li div.menu-item {
+	width: 100px;
+	height: 100px;
+	display: block;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+}
+.top-menu li:hover div.menu-item{
+		-webkit-transform: rotate(225deg);
+	-moz-transform: rotate(225deg);
+	-o-transform: rotate(225deg);
+}
+.top-menu li:active div.menu-item{
+	-webkit-border-top-left-radius: 50px;
+	-webkit-border-bottom-right-radius: 50px;
+	-moz-border-radius-topleft: 50px;
+	-moz-border-radius-bottomright: 50px;
+	border-top-left-radius: 50px;
+	border-bottom-right-radius: 50px;
+
+}
+#highscores { background: @softOrange; }
+#play { background: @softBlue }

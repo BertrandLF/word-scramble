@@ -19,7 +19,7 @@ function GameCtrl($scope, words, WordService, ScoreService) {
   }
 
   $scope.$on('timesUp', function (event, data) {
-    ScoreService.endGame()
+    ScoreService.endGame(ctrl.score)
     ctrl.finished = true
   })
 

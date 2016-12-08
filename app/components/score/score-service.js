@@ -5,7 +5,7 @@ angular
   .service('ScoreService', Score)
 
 function Score() {
-  this.endGame = function() {
-    console.log("Game over!!")
+  this.endGame = function(finalScore) {
+    console.log("Game over!!", finalScore)
   }
 }

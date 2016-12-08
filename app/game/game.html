@@ -1,6 +1,13 @@
 <div class="row">
-    <div class="col-xs-6 col-md-6 score">Score: {{ ctrl.score }}</div>
-    <div ng-controller='TimeCtrl as timeCtrl' class="col-xs-6 col-md-6 time">Time: {{ timeCtrl.timer }}</div>
+    <div ng-class="(ctrl.finished) ? 'done' : ''" class="col-xs-6 col-md-6 info score rounded">Score: {{ ctrl.score }}</div>
+    <div ng-class="(ctrl.finished) ? 'done' : ''" ng-controller='TimeCtrl as timeCtrl' class="col-xs-6 col-md-6 info time rounded">Time: {{ timeCtrl.timer }}</div>
 </div>
-<div class="row guess">{{ ctrl.word.guess }}</div>
-<div class="row solution"><input type="text" ng-disabled="ctrl.finished" ng-keyup="ctrl.evaluateGuess($event)" ng-model="ctrl.guessValue" autofocus/></div>
+<div class="row info guess rounded">{{ ctrl.word.guess }}</div>
+<div class="row solution rounded">
+    <input type="text"
+        ng-disabled="ctrl.finished"
+        ng-keyup="ctrl.evaluateGuess($event)"
+        ng-model="ctrl.guessValue"
+        class="blended"
+        autofocus/>
+</div>

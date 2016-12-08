@@ -1,8 +1,77 @@
-.score {
-    padding: 5px;
-    border: solid 1px red;
+@import "/assets/styles/constants";
+
+.game {
+	margin: @space;
+  min-width: 450px;
+  max-width: 800px;
+  margin: 0 auto;
+	margin-top:@space / 2
 }
+
+.container {
+	width: 100%;
+	background-color: black;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.rounded {
+		padding: 5px;
+    font-size: 25px;
+    border-radius: 8px;
+}
+
+.info {
+    color: white;
+    max-width: 140px;
+    margin: 0 20px 20px 20px;
+
+		&.done {
+			border: solid 5px red;
+		}
+}
+
+.score {
+	border: solid 5px @softOrange;
+}
+
 .time {
-    padding: 5px;
-    border: solid 1px blue;
+	border: solid 5px @softBlue;
+	float: right;
+}
+
+.guess {
+		margin: auto;
+		border: none;
+		float: center;
+		line-height: 20px;
+		letter-spacing: 25px;
+		padding: 10px 15px;
+		background: white;
+		color: black;
+		width: 100%;
+		max-width: 500px;
+		text-align: center;
+}
+
+.solution {
+				margin: auto;
+				margin-bottom: @space;
+				border: none;
+				float: center;
+				line-height: 20px;
+				padding: 5px 15px;
+				background: white;
+				color: black;
+				width: 100%;
+				max-width: 500px;
+				text-align: center;
+}
+
+.blended {
+	border: none;
+
+	&:focus {
+		border: none;
+	}
+
 }
